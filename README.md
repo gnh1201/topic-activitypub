@@ -26,6 +26,8 @@ My projects list of the related to ActivityPub (Fediverse)
   * SSL certificate issuance
 * [squid-cache](https://www.squid-cache.org/)
   * If you're considering creating a proxy server yourself, you might want to consider squid-cache.
+* [SendGrid](https://sendgrid.com/)
+  * Integrate fast and explore features with 100 emails/day forever.
 * Private VPN software: [OpenVPN](https://openvpn.net/), [WireGuard](https://www.wireguard.com/), [Shadowsocks](https://shadowsocks.org/), etc.
   * By appropriately utilizing private VPN software, you can configure network structures such as Cloud DMZ that can help in cost-saving.
 
