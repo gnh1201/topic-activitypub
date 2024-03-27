@@ -13,6 +13,14 @@ My projects list of the related to ActivityPub (Fediverse)
 * A customized translation service that is compatible with the LibreTranslate API
   * https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
 
+### Outsides of this topic
+* NILFS2: When applied to the cache area, you can benefit from improved cache write and read speeds.
+  * https://nilfs.sourceforge.io/en/about_nilfs.html
+* Cloudflare WARP (Zero Trust): You can benefit from improved data transfer (federation) speeds between different nodes.
+  * https://one.one.one.one/ 
+* Cloudflare Tunnel (Argo Smart Routing): You can benefit from improved data transfer (federation) speeds between different nodes as well as website response speeds.
+  * https://www.cloudflare.com/products/tunnel/
+
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
 * abuse@catswords.net
