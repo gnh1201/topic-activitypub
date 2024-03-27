@@ -32,6 +32,8 @@ My projects list of the related to ActivityPub (Fediverse)
 * squid-cache
   * If you're considering creating a proxy server yourself, you might want to consider squid-cache.
   * https://www.squid-cache.org/
+* Private VPN software: OpenVPN, WireGuard, Shadowsocks, etc.
+  * By appropriately utilizing private VPN software, you can configure network structures such as Cloud DMZ that can help in cost-saving.
 
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
