@@ -22,7 +22,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * [Cloudflare Tunnel (Argo Smart Routing)](https://www.cloudflare.com/products/tunnel/)
   * You can benefit from improved data transfer (federation) speeds between different nodes as well as website response speeds.
 * [Cloudflare R2](https://www.cloudflare.com/ko-kr/developer-platform/r2/)
-  * As an object storage service. In my case, I use it to share server settings (certificates, configuration files, etc.) between servers.
+  * As an object storage service. In my case, I use it to save and share a server settings (certificates, configuration files, etc.) between my other servers.
 * [acme.sh](https://github.com/acmesh-official/acme.sh)
   * SSL certificate issuance
 * [squid-cache](https://www.squid-cache.org/)
