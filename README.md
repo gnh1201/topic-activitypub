@@ -15,7 +15,7 @@ My projects list of the related to ActivityPub (Fediverse)
  
 The following list comprises third-party software that I use to build my ActivityPub stack.
 
-* Cloudflare WARP (Zero Trust Client) - https://one.one.one.one/
+* Cloudflare WARP (Zero Trust) - https://one.one.one.one/
   * Support for enhanced inter-node federation speed, hide IP, and blocking of violent websites.
 * Cloudflare Tunnel (Argo Smart Routing)
   * Support for enhanced inter-node federation speed, reducing potential unwanted traffic.
