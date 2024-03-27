@@ -14,11 +14,14 @@ My projects list of the related to ActivityPub (Fediverse)
   * https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
 
 ### Outsides of this topic
-* NILFS2: When applied to the cache area, you can benefit from improved cache write and read speeds.
+* NILFS2
+  * When applied to the cache area, you can benefit from improved cache write and read speeds.
   * https://nilfs.sourceforge.io/en/about_nilfs.html
-* Cloudflare WARP (Zero Trust): You can benefit from improved data transfer (federation) speeds between different nodes.
+* Cloudflare WARP (Zero Trust)
+  * You can benefit from improved data transfer (federation) speeds between different nodes.
   * https://one.one.one.one/ 
-* Cloudflare Tunnel (Argo Smart Routing): You can benefit from improved data transfer (federation) speeds between different nodes as well as website response speeds.
+* Cloudflare Tunnel (Argo Smart Routing)
+  * You can benefit from improved data transfer (federation) speeds between different nodes as well as website response speeds.
   * https://www.cloudflare.com/products/tunnel/
 
 ## Contact me
