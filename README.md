@@ -1,7 +1,7 @@
 # topic-activitypub
 A list of everything related to my ActivityPub (Fediverse) server operation.
  
-## My projects list
+## List of my projects
 * Caterpillar Proxy - The simple and parasitic web proxy with SPAM filter (formerly, php-httpproxy)
   * https://github.com/gnh1201/caterpillar
   * https://github.com/gnh1201/caterpillar/wiki/Fediverse
@@ -14,7 +14,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * A customized translation service that is compatible with the LibreTranslate API
   * https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
 
-## Thirdparties
+## List of thirdparties
 * [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
   * When applied to the cache area, you can benefit from improved cache write and read speeds.
 * [Cloudflare WARP (Zero Trust)](https://one.one.one.one/ )
