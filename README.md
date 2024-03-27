@@ -14,25 +14,19 @@ My projects list of the related to ActivityPub (Fediverse)
   * https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
 
 ### Outsides of this topic
-* NILFS2
+* [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
   * When applied to the cache area, you can benefit from improved cache write and read speeds.
-  * https://nilfs.sourceforge.io/en/about_nilfs.html
-* Cloudflare WARP (Zero Trust)
+* [Cloudflare WARP (Zero Trust)](https://one.one.one.one/ )
   * You can benefit from improved data transfer (federation) speeds between different nodes.
-  * https://one.one.one.one/ 
-* Cloudflare Tunnel (Argo Smart Routing)
+* [Cloudflare Tunnel (Argo Smart Routing)](https://www.cloudflare.com/products/tunnel/)
   * You can benefit from improved data transfer (federation) speeds between different nodes as well as website response speeds.
-  * https://www.cloudflare.com/products/tunnel/
-* Cloudflare R2
+* [Cloudflare R2](https://www.cloudflare.com/ko-kr/developer-platform/r2/)
   * As an object storage service, it offers various applications. In my case, I use it to share server settings (certificates, configuration files, etc.) between servers.
-  * https://www.cloudflare.com/ko-kr/developer-platform/r2/
-* acme.sh
+* [acme.sh](https://github.com/acmesh-official/acme.sh)
   * SSL certificate issuance
-  * https://github.com/acmesh-official/acme.sh
-* squid-cache
+* [squid-cache](https://www.squid-cache.org/)
   * If you're considering creating a proxy server yourself, you might want to consider squid-cache.
-  * https://www.squid-cache.org/
-* Private VPN software: OpenVPN, WireGuard, Shadowsocks, etc.
+* Private VPN software: [OpenVPN](https://openvpn.net/), [WireGuard](https://www.wireguard.com/), [Shadowsocks](https://shadowsocks.org/), etc.
   * By appropriately utilizing private VPN software, you can configure network structures such as Cloud DMZ that can help in cost-saving.
 
 ## Contact me
