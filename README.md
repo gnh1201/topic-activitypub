@@ -31,8 +31,6 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
   * By appropriately utilizing private VPN software, you can configure network structures such as Cloud DMZ that can help in cost-saving.
 * [SendGrid](https://sendgrid.com/)
   * Integrate fast and explore features with 100 emails/day forever.
-* [Mezmo (formerly, LogDNA)](https://www.mezmo.com/)
-  * Operating a self-managed logging system may not facilitate smooth access for emergency investigation. To address such issues, external logging system operation providers can be utilized, and I recommend the company Mezmo for this purpose. Resellers such as IBM are also available.
 
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
