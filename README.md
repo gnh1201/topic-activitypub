@@ -5,6 +5,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * Caterpillar Proxy - The simple and parasitic web proxy with SPAM filter (formerly, php-httpproxy)
   * https://github.com/gnh1201/caterpillar
   * https://github.com/gnh1201/caterpillar/wiki/Fediverse
+  * https://qiita.com/gnh1201/items/09f4081f84610db3a9d3 (K-Anonymity for Spam Filtering: Case with Mastodon, and Misskey)
 * ActivityPub (Fediverse) implementation for GNUBOARD5
   * https://github.com/gnh1201/gnuboard5-activitypub
 * How to accelerate video trancoding (FFmpeg) in Mastodon
