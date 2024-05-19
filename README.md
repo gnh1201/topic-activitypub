@@ -16,6 +16,8 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
   * https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
 * Social on the file - File reputation checker with Social media timeline
   * https://github.com/gnh1201/SocialOnTheFile
+* ActivityPub over LoRaWAN (Draft)
+  * Search "LoRa" in catswords.social
 
 ## List of thirdparties
 * [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
