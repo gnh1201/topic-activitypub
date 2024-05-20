@@ -19,7 +19,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * ActivityPub over LoRaWAN (Draft)
   * Use [SenseCAP M2 Multi-Platform LoRaWAN Indoor Gateway(SX1302)](https://www.seeedstudio.com/SenseCAP-Multi-Platform-LoRaWAN-Indoor-Gateway-SX1302-EU868-p-5471.html)
   * Use [Dragino LA66 USB LoRaWAN Adapter](https://www.dragino.com/products/lora/item/232-la66-usb-lorawan-adapter.html)
-  * Also, Please check `#lorawan` hashtag in catswords.social
+  * Also, Please check `#caterpillar-proxy` hashtag in catswords.social
 
 ## List of thirdparties
 * [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
