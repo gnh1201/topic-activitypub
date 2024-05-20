@@ -38,7 +38,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
   * By appropriately utilizing private VPN software, you can configure network structures such as Cloud DMZ that can help in cost-saving.
 * [SendGrid](https://sendgrid.com/)
   * Integrate fast and explore features with 100 emails/day forever.
-* [Useful honeypot projects](honeypot.md)
+* [Honeypots](honeypots.md)
 
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
