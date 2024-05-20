@@ -17,7 +17,9 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * Social on the file - File reputation checker with Social media timeline
   * https://github.com/gnh1201/SocialOnTheFile
 * ActivityPub over LoRaWAN (Draft)
-  * Search "LoRa" in catswords.social
+  * Use [SenseCAP M2 Multi-Platform LoRaWAN Indoor Gateway(SX1302)](https://www.seeedstudio.com/SenseCAP-Multi-Platform-LoRaWAN-Indoor-Gateway-SX1302-EU868-p-5471.html)
+  * Use [Dragino LA66 USB LoRaWAN Adapter](https://www.dragino.com/products/lora/item/232-la66-usb-lorawan-adapter.html)
+  * Also, Please check `#lorawan` hashtag in catswords.social
 
 ## List of thirdparties
 * [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
