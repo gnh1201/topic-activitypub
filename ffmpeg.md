@@ -166,6 +166,9 @@ It is determined that image files do not have a significant impact on server per
 ## (TMI) Other applications
 Applications such as Misskey and Pleroma, which utilize the ActivityPub network, can also employ similar methods. If you wish, please contact me through my profile. I can prepare presets tailored to your application on my transcoding server.
 
+## Original article
+* https://gist.github.com/gnh1201/1ba49e0e80a11237038900bf8abfa434
+
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
 * abuse@catswords.net
