@@ -39,6 +39,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * [SendGrid](https://sendgrid.com/)
   * Integrate fast and explore features with 100 emails/day forever.
 * [Honeypots](honeypots.md)
+* [Image stocks](https://policy.catswords.social/stock_images.html)
 
 ## Contact me
 * ActivityPub [@catswords_oss@catswords.social](https://catswords.social/@catswords_oss)
