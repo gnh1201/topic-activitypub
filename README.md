@@ -41,5 +41,5 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
 * [Honeypots](honeypots.md)
 
 ## Contact me
-* ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
+* ActivityPub [@catswords_oss@catswords.social](https://catswords.social/@catswords_oss)
 * abuse@catswords.net
