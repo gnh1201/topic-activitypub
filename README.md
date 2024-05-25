@@ -1,7 +1,7 @@
 # topic-activitypub
-A list of everything related to my ActivityPub (Fediverse) server operation.
- 
-## List of my projects
+ActivityPub knowledge base from my open source projects
+
+## My projects
 * Caterpillar Proxy - The simple and parasitic web proxy with SPAM filter (formerly, php-httpproxy)
   * https://github.com/gnh1201/caterpillar
   * https://github.com/gnh1201/caterpillar/wiki/Fediverse
@@ -21,7 +21,7 @@ A list of everything related to my ActivityPub (Fediverse) server operation.
   * Use [Dragino LA66 USB LoRaWAN Adapter](https://www.dragino.com/products/lora/item/232-la66-usb-lorawan-adapter.html)
   * Also, Please check `#caterpillar_proxy` hashtag in catswords.social
 
-## List of thirdparties
+## Thirdparties
 * [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
   * When applied to the cache area, you can benefit from improved cache write and read speeds.
 * [Cloudflare WARP (Zero Trust)](https://one.one.one.one/ )
