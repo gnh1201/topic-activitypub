@@ -1,8 +1,21 @@
-# Example of a translation service gateway
+# LibreTranslate API compatible gateway
 
 A customized translation service that is compatible with the LibreTranslate API
 
-## hello.py
+## How to test
+
+### FormData
+
+```bash
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'q=hello world&source=en&target=ko' http://localhost:5000/translate
+```
+
+### JSON
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{q:"hello world","source":"en","target":"ko"}' http://localhost:5000/translate
+```
+
+## Example: hello.py
 
 ```py
 #!/usr/bin/env python3
@@ -86,7 +99,7 @@ def translate():
     except Exception as e:
         traceback.print_exc()
         app.logger.info(str(e))
-        return jsonify({"error": str(e)}), 500
+        #return jsonify({"error": str(e)}), 500
 
     # 필수 요청 매개변수 확인
     if 'q' not in data or 'target' not in data:
