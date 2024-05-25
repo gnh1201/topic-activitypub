@@ -25,7 +25,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"q":["hello world"],"sourc
 #
 # @author: Namhyeon Go <abuse@catswords.net>
 # @created_on: 2024-03-15
-# @updated_on: 2024-03-19
+# @updated_on: 2024-05-25
 #
 
 import traceback
@@ -65,6 +65,13 @@ language_names = [
     '터키어', '우크라이나어', '우르두어', '우즈베크어', '베트남어', '웨일스어', '코사어', '이디시어', '요루바어',
     '주앙어', '중국어', '줄루어'
 ]
+
+# 프록시 지정
+#proxies = {
+#    'http': 'http://localhost:40000',
+#    'https': 'http://localhost:40000'
+#}
+proxies = {}
 
 # 언어 이름 확인
 def get_language_name(code):
@@ -112,7 +119,7 @@ def translate():
     try:
         translated_texts = []
         for text in original_texts:
-            translated_texts.append(ts.translate_text(text, from_language=from_language, to_language=data['target'], translator=translator))
+            translated_texts.append(ts.translate_text(text, proxies=proxies, from_language=from_language, to_language=data['target'], translator=translator))
         return jsonify({"translatedText": translated_texts}), 200
     except Exception as e:
         traceback.print_exc()
@@ -163,7 +170,7 @@ def main():
 '''
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
 ```
 
 ## language-service.service
