@@ -178,14 +178,14 @@ if __name__ == "__main__":
 ```service
 [Unit]
 Description=serverless translation service gateway
-Documentation=https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
+Documentation=https://github.com/gnh1201/topic-activitypub
 After=network.target
 
 [Service]
-User=gosomi
-Group=gosomi
-WorkingDirectory=/home/gosomi/Projects/language-service
-ExecStart=/usr/bin/python3 /home/gosomi/Projects/language-service/hello.py
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Projects/language-service
+ExecStart=/usr/bin/python3 /home/ubuntu/Projects/language-service/hello.py
 Restart=always
 
 [Install]
