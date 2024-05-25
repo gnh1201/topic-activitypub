@@ -12,7 +12,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'q=hello wo
 
 ### JSON
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{q:"hello world","source":"en","target":"ko"}' http://localhost:5000/translate
+curl -X POST -H "Content-Type: application/json" -d '{"q":["hello world"],"source":"en","target":"ko"}' http://localhost:5000/translate
 ```
 
 ## Example: hello.py
