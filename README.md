@@ -22,8 +22,6 @@ ActivityPub knowledge base from my open source projects
   * Also, Please check `#caterpillar_proxy` hashtag in catswords.social
 
 ## Thirdparties
-* [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html)
-  * When applied to the cache area, you can benefit from improved cache write and read speeds.
 * [Cloudflare WARP (Zero Trust)](https://one.one.one.one/ )
   * You can benefit from improved data transfer (federation) speeds between different nodes.
 * [Cloudflare Tunnel (Argo Smart Routing)](https://www.cloudflare.com/products/tunnel/)
