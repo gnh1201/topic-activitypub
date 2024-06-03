@@ -11,7 +11,7 @@ Operating honeypots on an ActivityPub server can help reduce the generation of u
 * (PostgreSQL/5432) [betheroot/pghoney](https://github.com/betheroot/pghoney)  - written in Go, [Modified version available](https://github.com/gnh1201/pghoney)
 
 ## DoS(Denial of Service) issue
-Recent honeypot operation cases have shown that honeypots are not safe from DoS attacks (such as SYN Flooding). Please take this into consideration when operating them.
+Recent honeypot operation cases have confirmed that honeypots are also vulnerable to DoS attacks such as SYN Flooding. This can cause memory shortages and lead to various related issues. This should be taken into account during operation.
 
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
