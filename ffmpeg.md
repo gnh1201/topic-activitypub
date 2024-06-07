@@ -90,7 +90,7 @@ Please make sure to optimize your Sidekiq processes and threads as much as possi
     def receive_file(destination)
       puts "Downloading the file... (receive_file in lib/paperclip/image_extractor.rb)"
       command = Terrapin::CommandLine.new('curl', '-k -X POST -F :source :endpoint -o :destination')
-      puts command.command(destination: destination.path, endpoint: ENV['FFMPEG_API_ENDPOINT'] + '/video/extract/images?download=yes')
+      puts command.command(destination: destination.path, endpoint: ENV['FFMPEG_API_ENDPOINT'] + '/video/extract/images?download=yes', source: 'file=@' + @file.path)
       command.run(destination: destination.path, endpoint: ENV['FFMPEG_API_ENDPOINT'] + '/video/extract/images?download=yes', source: 'file=@' + @file.path, logger: Paperclip.logger)
     end
   end
