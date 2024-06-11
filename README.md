@@ -22,8 +22,8 @@ ActivityPub knowledge base from my open source projects
   * Also, Please check `#caterpillar_proxy` hashtag in catswords.social
 
 ## Thirdparties
-* nginx
-* [Cloudflare WARP (Zero Trust)](https://one.one.one.one/ )
+* [nginx](https://nginx.org/)
+* [Cloudflare WARP (Zero Trust)](https://one.one.one.one/)
   * You can benefit from improved data transfer (federation) speeds between different nodes.
 * [Cloudflare Tunnel (Argo Smart Routing)](https://www.cloudflare.com/products/tunnel/)
   * You can benefit from improved data transfer (federation) speeds between different nodes as well as website response speeds.
