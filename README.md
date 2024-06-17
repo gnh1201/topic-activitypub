@@ -12,8 +12,8 @@ ActivityPub knowledge base from my open source projects
   * https://gist.github.com/gnh1201/1ba49e0e80a11237038900bf8abfa434
 * Simple web API for extracting images/audio from video and converting audio/video/image files with ffmpeg.
   * https://github.com/gnh1201/ffmpeg-api
-* A customized translation service that is compatible with the LibreTranslate API
-  * https://gist.github.com/gnh1201/93cecb002080da2b65eda3dd6032f05a
+* Lingva Translate Gateway for Mastodon (LibreTranslate API compatible)
+  * https://github.com/gnh1201/mastodon-lingva
 * Social on the file - File reputation checker with Social media timeline
   * https://github.com/gnh1201/SocialOnTheFile
 * ActivityPub over LoRaWAN (Draft)
