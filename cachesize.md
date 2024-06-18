@@ -19,6 +19,9 @@ Below are some examples of links where you can check the size of media files.
 
 This example can be utilized in devising network acceleration strategies.
 
+### Cloudflare
+Cloudflare supports caching sizes up to 100MB per file (on the free plan), so integrating it with existing cloud infrastructure can lead to significant network acceleration effects.
+
 ## Contact me
 - abuse@catswords.net
 - ActivityPub [@catswords_oss@catswords.social](https://catswords.social/@catswords_oss)
