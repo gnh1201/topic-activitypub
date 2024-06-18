@@ -10,10 +10,12 @@ Below are some examples of links where you can check the size of media files.
   * https://catswords.social/system/accounts/avatars/109/419/749/463/281/498/original/33300cd69a1065be.png
 * Emoji: 5.21KB
   * https://catswords.social/system/cache/custom_emojis/images/000/214/949/original/7cd4227785d8a56c.png
-* Animated GIF (MP4 converted): 635KB
+* Animated GIF, MP4 converted: 635KB
   * https://catswords.social/@gnh1201/112635700763233336
-* 4 minutes movie (MP4 converted): 19MB
+* Long (4 minutes) video, MP4 converted: 19MB
   * https://catswords.social/@gnh1201/112631390630236775
+* Short video, MP4 converted: 1.3MB
+  * https://catswords.social/@gnh1201/112631239913009057
 
 This example can be utilized in devising network acceleration strategies.
 
