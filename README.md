@@ -12,6 +12,7 @@ ActivityPub knowledge base from my open source projects
   * https://gist.github.com/gnh1201/1ba49e0e80a11237038900bf8abfa434
 * Simple web API for extracting images/audio from video and converting audio/video/image files with ffmpeg.
   * https://github.com/gnh1201/ffmpeg-api
+  * https://github.com/gnh1201/ffmpeg-api/blob/master/technical-notes.md
 * Lingva Translate Gateway for Mastodon (LibreTranslate API compatible)
   * https://github.com/gnh1201/mastodon-lingva
 * Social on the file - File reputation checker with Social media timeline
