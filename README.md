@@ -1,7 +1,7 @@
 # topic-activitypub
-ActivityPub knowledge base from my open source projects
+My awesome list about ActivityPub and Fediverse
 
-## My projects
+## Projects
 * Caterpillar Proxy - The simple and parasitic web proxy with SPAM filter (formerly, php-httpproxy)
   * https://github.com/gnh1201/caterpillar
   * https://github.com/gnh1201/caterpillar/wiki/Fediverse
@@ -18,9 +18,11 @@ ActivityPub knowledge base from my open source projects
 * Social on the file - File reputation checker with Social media timeline
   * https://github.com/gnh1201/SocialOnTheFile
 * ActivityPub over LoRaWAN (Proposal)
-* [relay.catswords.net](https://relay.catswords.net/) - ActivityPub Relay Server
 
-## Thirdparties
+## Tools
+* [relay.catswords.net](https://relay.catswords.net/) - ActivityPub Relay
+
+## 3rdparties
 * [nginx](https://nginx.org/)
 * [Cloudflare WARP (Zero Trust)](https://one.one.one.one/)
   * You can benefit from improved data transfer (federation) speeds between different nodes.
