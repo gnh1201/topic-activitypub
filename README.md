@@ -17,10 +17,8 @@ ActivityPub knowledge base from my open source projects
   * https://github.com/gnh1201/mastodon-lingva
 * Social on the file - File reputation checker with Social media timeline
   * https://github.com/gnh1201/SocialOnTheFile
-* ActivityPub over LoRaWAN (Draft)
-  * Use [SenseCAP M2 Multi-Platform LoRaWAN Indoor Gateway(SX1302)](https://www.seeedstudio.com/SenseCAP-Multi-Platform-LoRaWAN-Indoor-Gateway-SX1302-EU868-p-5471.html)
-  * Use [Dragino LA66 USB LoRaWAN Adapter](https://www.dragino.com/products/lora/item/232-la66-usb-lorawan-adapter.html)
-  * Also, Please check `#caterpillar_proxy` hashtag in catswords.social
+* ActivityPub over LoRaWAN (Proposal)
+* [relay.catswords.net](https://relay.catswords.net/) - ActivityPub Relay Server
 
 ## Thirdparties
 * [nginx](https://nginx.org/)
