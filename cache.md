@@ -1,4 +1,4 @@
-# All about a cache in ActivityPub network
+# About a cache in ActivityPub network
 
 ## Cache size
 When operating an ActivityPub network, it is advisable to configure media caching in the cloud (AWS Lightsail, Vultr, etc.).
@@ -33,6 +33,6 @@ Cloudflare supports caching sizes up to 100MB per file (on the free plan), so in
 ### NILFS2
 We had been operating with [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html) applied to the cache (including all directories under `/var/cache`, such as the nginx cache), but discontinued its use as of June 3, 2024, due to the garbage collection (`nilfs_cleanerd`) not functioning correctly.
 
-## Any question?
+## Any questions?
 - abuse@catswords.net
 - ActivityPub [@catswords_oss@catswords.social](https://catswords.social/@catswords_oss)
