@@ -37,6 +37,8 @@ prefer_direct on
 http_access allow localnet
 ```
 
+I observed that as outbound requests become more frequent, the resource demands of Cloudflare WARP's process, `warp-svc`, increase significantly. If performance improvement is necessary, you can use Squid Cache to offload proxy operations to a different machine.
+
 ## Filesystem
 
 ### Ext4
