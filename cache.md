@@ -20,18 +20,30 @@ Below are some examples of links where you can check the size of media files.
 
 This example can be utilized in devising network acceleration strategies.
 
-## CDN(Content Delivery Network)
+## Network Acceleration
 
-### Cloudflare
+### Cloudflare CDN (Inbound)
 Cloudflare supports caching sizes up to 100MB per file (on the free plan), so integrating it with existing cloud infrastructure can lead to significant network acceleration effects.
+
+### Cloudflare WARP with Squid-cache (Outbound)
+You can accelerate your network by enabling the proxy mode of Cloudflare WARP (please refer to the official documentation on how to enable it) and integrating it with Squid cache. Outbound network traffic occurs when communicating with ActivityPub relays, performing recipient verification, etc. An example of a suitable squid.conf configuration is as follows:
+
+```
+cache_peer 127.0.0.1 parent 40000 0 no-query default
+cache_peer_access 127.0.0.1 allow !localnet
+never_direct deny localnet
+never_direct allow all
+prefer_direct on
+http_access allow localnet
+```
 
 ## Filesystem
 
 ### Ext4
-[Ext4](https://en.wikipedia.org/wiki/Ext4) is the default file system currently used in our service.
+[Ext4](https://en.wikipedia.org/wiki/Ext4) is the default file system currently used in my service.
 
 ### NILFS2
-We had been operating with [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html) applied to the cache (including all directories under `/var/cache`, such as the nginx cache), but discontinued its use as of June 3, 2024, due to the garbage collection (`nilfs_cleanerd`) not functioning correctly.
+I had been using [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html) for the cache (including all directories under `/var/cache`, such as the Nginx cache), but discontinued its use as of June 3, 2024, due to the garbage collection (`nilfs_cleanerd`) not functioning correctly.
 
 ## Any questions?
 - abuse@catswords.net
