@@ -32,7 +32,7 @@ My awesome list about ActivityPub and Fediverse
   * As an object storage service. In my case, I use it to save and share a server settings (certificates, configuration files, etc.) between my other servers.
 * [acme.sh](https://github.com/acmesh-official/acme.sh)
   * SSL certificate issuance
-* [squid-cache](https://www.squid-cache.org/)
+* [Squid Cache](https://www.squid-cache.org/)
   * If you're considering creating a proxy server yourself, you might want to consider squid-cache.
 * Private VPN software: [OpenVPN](https://openvpn.net/), [WireGuard](https://www.wireguard.com/), [Shadowsocks](https://shadowsocks.org/), etc.
   * By appropriately utilizing private VPN software, you can configure network structures such as Cloud DMZ that can help in cost-saving.
