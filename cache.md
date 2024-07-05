@@ -1,4 +1,4 @@
-# About a cache in ActivityPub network
+# Everything About Caching in an ActivityPub Server Environment
 
 ## Cache size
 When operating an ActivityPub network, it is advisable to configure media caching in the cloud (AWS Lightsail, Vultr, etc.).
