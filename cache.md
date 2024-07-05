@@ -1,5 +1,6 @@
-## Size of cache
+# All about a cache in ActivityPub network
 
+## Cache size
 When operating an ActivityPub network, it is advisable to configure media caching in the cloud (AWS Lightsail, Vultr, etc.).
 
 The media files shared on the ActivityPub network are mostly around 2MB in size. This is the size of the converted files, not the originals. A cache size of 2MB per file is appropriate.
@@ -19,9 +20,19 @@ Below are some examples of links where you can check the size of media files.
 
 This example can be utilized in devising network acceleration strategies.
 
+## CDN(Content Delivery Network)
+
 ### Cloudflare
 Cloudflare supports caching sizes up to 100MB per file (on the free plan), so integrating it with existing cloud infrastructure can lead to significant network acceleration effects.
 
-## Contact me
+## Filesystem
+
+### Ext4
+[Ext4](https://en.wikipedia.org/wiki/Ext4) is the default file system currently used in our service.
+
+### NILFS2
+We had been operating with [NILFS2](https://nilfs.sourceforge.io/en/about_nilfs.html) applied to the cache (including all directories under `/var/cache`, such as the nginx cache), but discontinued its use as of June 3, 2024, due to the garbage collection (`nilfs_cleanerd`) not functioning correctly.
+
+## Any question?
 - abuse@catswords.net
 - ActivityPub [@catswords_oss@catswords.social](https://catswords.social/@catswords_oss)
