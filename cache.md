@@ -26,7 +26,7 @@ This example can be utilized in devising network acceleration strategies.
 Cloudflare supports caching sizes up to 100MB per file (on the free plan), so integrating it with existing cloud infrastructure can lead to significant network acceleration effects.
 
 ### Cloudflare WARP with Squid Cache (Outbound)
-You can accelerate your network by enabling the proxy mode of [Cloudflare WARP](https://one.one.one.one/) (please refer to the official documentation on how to enable it) and integrating it with [Squid Cache](https://www.squid-cache.org/). Outbound network traffic occurs when communicating with ActivityPub relays, performing recipient verification, etc. An example of a suitable `squid.conf` configuration is as follows:
+You can accelerate your network by enabling the proxy mode of [Cloudflare WARP](https://one.one.one.one/) (please refer to the official documentation on how to enable it) and integrating it with [Squid Cache](https://www.squid-cache.org/). Outbound network traffic occurs when communicating with ActivityPub relays, performing message validation, etc. An example of a suitable `squid.conf` configuration is as follows:
 
 ```
 cache_peer 127.0.0.1 parent 40000 0 no-query default
