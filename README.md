@@ -44,3 +44,4 @@ My awesome list about ActivityPub and Fediverse
 ## Contact me
 * ActivityPub [@catswords_oss@catswords.social](https://catswords.social/@catswords_oss)
 * abuse@catswords.net
+* [Join Catswords on Microsoft Teams](https://teams.live.com/l/community/FEACHncAhq8ldnojAI)
