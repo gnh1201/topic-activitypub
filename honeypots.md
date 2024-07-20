@@ -16,3 +16,4 @@ Recent honeypot operation cases have confirmed that honeypots are also vulnerabl
 ## Contact me
 * ActivityPub [@gnh1201@catswords.social](https://catswords.social/@gnh1201)
 * abuse@catswords.net
+* [Join Catswords on Microsoft Teams](https://teams.live.com/l/community/FEACHncAhq8ldnojAI)
