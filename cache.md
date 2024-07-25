@@ -73,6 +73,7 @@ map $geoip2_data_country_code $allowed_country {
 
 ```
 limit_conn_zone $binary_remote_addr zone=website_conn:20m;
+limit_conn_status 429;
 
 server {
     server_name example.org www.example.org;
