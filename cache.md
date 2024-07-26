@@ -65,7 +65,8 @@ geoip2 /usr/share/GeoIP/GeoLite2-Country.mmdb {
 
 map $geoip2_data_country_code $allowed_country {
     default no;
-    KR yes;
+    KR yes;    # South Korea
+    #JP yes;    # Japan
 }
 ```
 
