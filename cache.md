@@ -97,6 +97,10 @@ server {
     if ($http_upgrade = "websocket") {
         set $route_cdn yes;
     }
+    # Allow if it is not a HTTP GET method
+    if ($request_method != "GET") {
+        set $route_cdn yes;
+    }
     # Redirect if all conditions are satisfied.
     if ($route_cdn = no) {
         return 307 https://$secondary_proxy_host$request_uri;
