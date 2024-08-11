@@ -111,12 +111,33 @@ server {
     # when use an alternative domains
     sub_filter_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml image/x-icon application/activity+json application/ld+json;
     sub_filter_once off;
+    sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
     # (...omitted...)
 }
 ```
+
+### Splitted Edge Configuration Using Multiple CDN Services
+CDN services can be classified into two types: a dynamic method that uses a [Reverse Proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) and a static method that does not. Cloudflare is a representative example of a dynamic method, while many other CDN services are likely to use the static method.
+
+By combining these two types of services, you can implement what is known as a "splitted edge." This involves first resolving the user's region (determining which country the user belongs to) using the static method and then serving content using the dynamic method.
+
+Below is a configuration example using [bunny.net](https://bunny.net):
+
+- Edge Rules
+  - **Region-based 307**
+    - **Actions:**
+      - Set Status Code: `307`
+      - Set Response Header: `Location https://www.example.org{{path}}`
+    - **Conditions:**
+      - **IF:**
+        - ALL Condition matches:
+          - NONE Country Code: `KR`
+          - ANY Request Method: `GET`
+- Caching/General
+  - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
 
 ## Filesystem
 
