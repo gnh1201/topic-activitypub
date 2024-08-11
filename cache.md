@@ -106,12 +106,22 @@ server {
         return 307 https://$secondary_proxy_host$request_uri;
     }
 
+    location / {
+        # (...omitted...)
+
+        # Overwrite CSP(Content-Security-Policy)
+        proxy_hide_header Content-Security-Policy;
+        add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
+
+        # (...omitted...)
+    }
+
     # (...omitted...)
 
     # when use an alternative domains
     sub_filter_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml image/x-icon application/activity+json application/ld+json;
     sub_filter_once off;
-    #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
+    sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
@@ -138,8 +148,6 @@ Below is a configuration example using [bunny.net](https://bunny.net):
           - ANY Request Method: `GET`
 - Caching/General
   - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
-
-**Note**: The WebSocket-related errors arising from this configuration have not yet been resolved, so please consider this information as reference only. Generally, if there are no CORS settings for WebSockets, it should work with just domain routing; however, in the case of Mastodon, it has been confirmed that such settings do exist.
 
 ## Filesystem
 
