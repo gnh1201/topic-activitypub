@@ -130,7 +130,7 @@ server {
 ```
 
 ### Splitted Edge Configuration Using Multiple CDN Services
-CDN services can be classified into two types: a dynamic method that uses a [Interactive Reverse Proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) and a static (Non-interactive Reverse Proxy) method that does not. Cloudflare is a representative example of a dynamic method, while many other CDN services are likely to use the static method.
+CDN services can be classified into two types: a dynamic method that uses a [Reverse Proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) and a static (General HTTP Proxy) method that does not. Cloudflare is a representative example of a dynamic method, while many other CDN services are likely to use the static method.
 
 By combining these two types of services, you can implement what is known as a "splitted edge." This involves first resolving the user's region (determining which country the user belongs to) using the static method and then serving content using the dynamic method.
 
