@@ -146,6 +146,8 @@ Below is a configuration example using [bunny.net](https://bunny.net):
         - ALL Condition matches:
           - NONE Country Code: `KR`
           - ANY Request Method: `GET`
+- General
+  - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
 - Caching/General
   - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
 
