@@ -73,8 +73,8 @@ map $geoip2_data_country_code $allowed_country {
 * [YOUR_WEBSITE].conf
 
 ```
-limit_conn_zone $binary_remote_addr zone=website_conn:20m;
-limit_conn_status 429;
+#limit_conn_zone $binary_remote_addr zone=website_conn:20m;
+#limit_conn_status 429;
 
 server {
     server_name example.org www.example.org;
@@ -82,7 +82,7 @@ server {
     # (...omitted...)
 
     # Set limit of concurrent connection
-    limit_conn   website_conn 30;
+    #limit_conn   website_conn 30;
 
     # Set alternative domains.
     set $primary_proxy_host "example.org";
