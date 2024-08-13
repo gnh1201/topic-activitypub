@@ -110,8 +110,8 @@ server {
         # (...omitted...)
 
         # Overwrite CSP(Content-Security-Policy)
-        proxy_hide_header Content-Security-Policy;
-        add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
+        #proxy_hide_header Content-Security-Policy;
+        #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
 
         # (...omitted...)
     }
@@ -121,7 +121,7 @@ server {
     # when use an alternative domains
     sub_filter_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml image/x-icon application/activity+json application/ld+json;
     sub_filter_once off;
-    sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
+    #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
