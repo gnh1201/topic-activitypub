@@ -119,7 +119,7 @@ server {
     # (...omitted...)
 
     # when use an alternative domains
-    sub_filter_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml image/x-icon application/activity+json application/ld+json;
+    sub_filter_types text/plain text/css text/xml application/xml application/xml+html;  # Do not apply 'application/activity+json' or 'application/ld+json'
     sub_filter_once off;
     #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
     sub_filter '/$primary_proxy_host' '/$host';
