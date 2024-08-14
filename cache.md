@@ -157,6 +157,7 @@ By combining these two types of services, you can implement what is known as a "
                     - NONE Country Code: `KR`
                     - ANY Request Method: `GET`
                     - NONE Status Code: `307`
+                    - NONE Request URL: `https://example.org/.well-known/*`
 - General
     - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
  
