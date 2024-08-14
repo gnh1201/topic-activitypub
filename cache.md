@@ -109,7 +109,7 @@ server {
     location / {
         # (...omitted...)
 
-        # Overwrite CSP(Content-Security-Policy)
+        # Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch
         #proxy_hide_header Content-Security-Policy;
         #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
 
@@ -121,7 +121,7 @@ server {
     # when use an alternative domains
     sub_filter_types text/plain text/css text/xml application/xml application/xml+html;  # Do not apply 'application/activity+json' or 'application/ld+json'
     sub_filter_once off;
-    #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket
+    #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # WebSocket (Be careful CSP domain mismatch)
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
