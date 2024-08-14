@@ -139,27 +139,27 @@ By combining these two types of services, you can implement what is known as a "
 Below is a configuration example using [bunny.net](https://bunny.net):
 
 - Edge Rules
-  - **Region-based 307**
-    - **Actions:**
-      - Set Status Code: `307`
-      - Set Response Header: `Location https://www.example.org{{path}}`
-    - **Conditions:**
-      - **IF:**
-        - ALL Condition matches:
-          - NONE Country Code: `KR`
-          - ANY Request Method: `GET`
-  - **Downgrade CSP(Content-Security-Policy) for specific regions**
-    - **Actions:**
-      - Set Response Header: Content-Security-Policy `default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
-    - **Conditions:**
-      - **IF:**
-        - ALL Condition matches:
-          - ANY Country Code: `KR`
-          - ANY Response Header: Content-Security-Policy `*`
+    - **Region-based 307**
+        - **Actions:**
+            - Set Status Code: `307`
+            - Set Response Header: `Location https://www.example.org{{path}}`
+        - **Conditions:**
+            - **IF:**
+                - ALL Condition matches:
+                    - NONE Country Code: `KR`
+                    - ANY Request Method: `GET`
+    - **Downgrade CSP (Content-Security-Policy) for specific regions**
+        - **Actions:**
+            - Set Response Header: Content-Security-Policy `default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
+        - **Conditions:**
+            - **IF:**
+                - ALL Condition matches:
+                    - ANY Country Code: `KR`
+                    - ANY Response Header: Content-Security-Policy `*`
 - General
-  - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
+    - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
 - Caching/General
-  - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
+    - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
  
 #### WebSocket and CSP issues of a static proxy
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration. Since this configuration requires careful handling, only apply it if you fully understand it.
