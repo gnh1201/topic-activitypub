@@ -124,7 +124,6 @@ server {
     # Do not apply 'application/activity+json' or 'application/ld+json'. There have been reports that corrupted Activities cause issues with the moderation features of the Misskey application.
     sub_filter_types text/plain text/css text/xml application/xml application/xml+html;
     sub_filter_once off;
-
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
