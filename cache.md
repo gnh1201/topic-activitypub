@@ -153,8 +153,9 @@ Below is a configuration example using [bunny.net](https://bunny.net):
       - Set Response Header: Content-Security-Policy `default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
     - **Conditions:**
       - **IF:**
-        - ANY Condition matches:
+        - ALL Condition matches:
           - ANY Country Code: `KR`
+          - ANY Response Header: Content-Security-Policy `*`
 - General
   - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
 - Caching/General
