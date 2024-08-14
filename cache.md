@@ -136,8 +136,7 @@ CDN services can be classified into two types: a dynamic method that uses an Int
 
 By combining these two types of services, you can implement what is known as a "splitted edge." This involves first resolving the user's region (determining which country the user belongs to) using the static method and then serving content using the dynamic method.
 
-Below is a configuration example using [bunny.net](https://bunny.net):
-
+#### Bunny CDN ([bunny.net](https://bunny.net)) configurations
 - Edge Rules
     - **Downgrade CSP(Content-Security-Policy) for specific regions**
         - **Actions:**
@@ -160,7 +159,7 @@ Below is a configuration example using [bunny.net](https://bunny.net):
 - General
     - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
  
-#### WebSocket and CSP issues of a static proxy
+#### NGINX configurations
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
 
 ```
