@@ -148,6 +148,13 @@ Below is a configuration example using [bunny.net](https://bunny.net):
         - ALL Condition matches:
           - NONE Country Code: `KR`
           - ANY Request Method: `GET`
+  - **Downgrade CSP(Content-Security-Policy) for specific regions**
+    - **Actions:**
+      - Set Response Header: Content-Security-Policy `default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
+    - **Conditions:**
+      - **IF:**
+        - ANY Condition matches:
+          - ANY Country Code: `KR`
 - General
   - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
 - Caching/General
