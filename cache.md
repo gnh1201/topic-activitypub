@@ -144,7 +144,7 @@ By combining these two types of services, you can implement what is known as a "
 - Edge Rules
     - **Downgrade CSP(Content-Security-Policy) for specific regions**
         - **Actions:**
-            - Set Response Header: `Content-Security-Policy default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
+            - Set Response Header: `Content-Security-Policy base-uri 'none'; default-src 'none'; frame-ancestors 'none'; font-src 'self' https://example.org https://*.example.org; img-src 'self' https: data: blob: https://example.org https://*.example.org; style-src 'self' https://example.org https://*.example.org 'unsafe-inline'; media-src 'self' https: data: https://example.org https://*.example.org; frame-src 'self' https: https://example.org https://*.example.org; manifest-src 'self' https://example.org https://*.example.org; form-action 'self' https://example.org https://*.example.org; child-src 'self' blob: https://example.org https://*.example.org; worker-src 'self' blob: https://example.org https://*.example.org; connect-src 'self' data: blob: https://example.org https://*.example.org wss://www.example.org; script-src 'self' https://example.org https://*.example.org 'wasm-unsafe-eval' 'unsafe-inline' 'unsafe-eval'`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
