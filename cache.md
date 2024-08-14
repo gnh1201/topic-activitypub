@@ -154,8 +154,7 @@ Below is a configuration example using [bunny.net](https://bunny.net):
 - Caching/General
   - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
  
-#### Problem of a static proxy serivces
-
+#### WebSocket and CSP issues of a static proxy
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration. Since this configuration requires careful handling, only apply it if you fully understand it.
 
 ```
