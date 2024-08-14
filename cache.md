@@ -139,12 +139,9 @@ By combining these two types of services, you can implement what is known as a "
 Below is a configuration example using [bunny.net](https://bunny.net):
 
 - Edge Rules
-    - **Region based 307**
+    - **Bypass the cache except for specific regions**
         - **Actions:**
-            - Set Status Code: `307`
-            - Set Response Header: `Location https://www.example.org{{path}}`
-            - Set Response Header: `Content-Length 0`
-            - Set Response Header: `Cache-Control no-cache`
+            - Bypass Perma-Cache
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
