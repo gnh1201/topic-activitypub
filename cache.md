@@ -156,6 +156,7 @@ By combining these two types of services, you can implement what is known as a "
                 - ALL Condition matches:
                     - NONE Country Code: `KR`
                     - ANY Request Method: `GET`
+                    - NONE Status Code: `307`
 - General
     - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
  
