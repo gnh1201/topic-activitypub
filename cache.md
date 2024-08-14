@@ -112,7 +112,7 @@ server {
     location / {
         # (...omitted...)
 
-        # (Be careful!) Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch
+        # (Be careful!) Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch on a static proxy service
         #proxy_hide_header Content-Security-Policy;
         #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
 
