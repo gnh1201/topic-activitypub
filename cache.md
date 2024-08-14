@@ -143,6 +143,8 @@ Below is a configuration example using [bunny.net](https://bunny.net):
         - **Actions:**
             - Set Status Code: `307`
             - Set Response Header: `Location https://www.example.org{{path}}`
+            - Set Response Header: `Content-Length `0
+            - Set Response Header: `Cache-Control no-cache`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
@@ -150,12 +152,12 @@ Below is a configuration example using [bunny.net](https://bunny.net):
                     - ANY Request Method: `GET`
     - **Downgrade CSP(Content-Security-Policy) for specific regions**
         - **Actions:**
-            - Set Response Header: Content-Security-Policy `default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
+            - Set Response Header: `Content-Security-Policy default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
                     - ANY Country Code: `KR`
-                    - ANY Response Header: Content-Security-Policy `*`
+                    - ANY Response Header: `Content-Security-Policy *`
 - General
     - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
 - Caching/General
