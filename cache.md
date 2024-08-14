@@ -104,6 +104,10 @@ server {
     if ($request_method != "GET") {
         set $route_cdn yes;
     }
+    # Allow .well-known
+    if ($uri ~* "^/.well-known") {
+        set $route_cdn yes;
+    }
     # Redirect if all conditions are satisfied.
     if ($route_cdn = no) {
         return 307 https://$secondary_proxy_host$request_uri;
