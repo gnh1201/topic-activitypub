@@ -165,16 +165,6 @@ Below is a configuration example using [bunny.net](https://bunny.net):
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration. Since this configuration requires careful handling, only apply it if you fully understand it.
 
 ```
-location / {
-    # (...omitted...)
-
-    # (Be careful!) Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch on a static proxy service
-    #proxy_hide_header Content-Security-Policy;
-    #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
-
-    # (...omitted...)
-}
-
 #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # (Be careful!) Bypass a WebSocket requests to dynamic proxy service
 ```
 
