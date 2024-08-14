@@ -112,10 +112,6 @@ server {
     location / {
         # (...omitted...)
 
-        # (Be careful!) Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch on a static proxy service
-        #proxy_hide_header Content-Security-Policy;
-        #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
-
         # Set limit of concurrent connection
         limit_conn website_conn 255;
 
@@ -128,7 +124,7 @@ server {
     # Do not apply 'application/activity+json' or 'application/ld+json'. There have been reports that corrupted Activities cause issues with the moderation features of the Misskey application.
     sub_filter_types text/plain text/css text/xml application/xml application/xml+html;
     sub_filter_once off;
-    #sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # (Be careful!) Bypass a WebSocket requests to dynamic proxy service
+
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
@@ -157,8 +153,24 @@ Below is a configuration example using [bunny.net](https://bunny.net):
   - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
 - Caching/General
   - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
+ 
+#### Problem of a static proxy serivces
 
-***NOTE***: For Mastodon, it has been confirmed that applying a static method proxy causes a conflict between WebSocket and CSP (domain mismatch). I've noted a solution to this issue in the comments, but please test it before using it.
+Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration. Since this configuration requires careful handling, only apply it if you fully understand it.
+
+```
+location / {
+    # (...omitted...)
+
+    # (Be careful!) Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch on a static proxy service
+    #proxy_hide_header Content-Security-Policy;
+    #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
+
+    # (...omitted...)
+}
+
+#sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # (Be careful!) Bypass a WebSocket requests to dynamic proxy service
+```
 
 ## Filesystem
 
