@@ -143,7 +143,7 @@ Below is a configuration example using [bunny.net](https://bunny.net):
         - **Actions:**
             - Set Status Code: `307`
             - Set Response Header: `Location https://www.example.org{{path}}`
-            - Set Response Header: `Content-Length `0
+            - Set Response Header: `Content-Length 0`
             - Set Response Header: `Cache-Control no-cache`
         - **Conditions:**
             - **IF:**
