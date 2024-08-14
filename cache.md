@@ -83,7 +83,7 @@ server {
     # (...omitted...)
 
     # Recover the real client IP
-    real_ip_header CF-Connecting-IP;
+    real_ip_header X-Forwarded-For;
     set_real_ip_from 127.0.0.1;
     #real_ip_recursive on;
 
