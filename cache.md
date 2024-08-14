@@ -113,7 +113,7 @@ server {
         # (...omitted...)
 
         # Set limit of concurrent connection
-        limit_conn website_conn 255;
+        limit_conn website_conn 30;
 
         # (...omitted...)
     }
