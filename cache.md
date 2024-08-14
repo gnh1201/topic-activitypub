@@ -52,9 +52,9 @@ map $remote_addr $forwarded_remote_addr {
     127.0.0.1 $http_x_forwarded_for;
 }
 
-map $http_referer $http_referer_host {
-    ~^.*://([^?/]+).*$ $1;
-}
+#map $http_referer $http_referer_host {
+#    ~^.*://([^?/]+).*$ $1;
+#}
 
 geoip2 /usr/share/GeoIP/GeoLite2-Country.mmdb {
     auto_reload 60m;
