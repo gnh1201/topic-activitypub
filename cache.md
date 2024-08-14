@@ -73,16 +73,19 @@ map $geoip2_data_country_code $allowed_country {
 * [YOUR_WEBSITE].conf
 
 ```
-#limit_conn_zone $binary_remote_addr zone=website_conn:20m;
-#limit_conn_status 429;
+limit_conn_zone $binary_remote_addr zone=website_conn:20m;
+#limit_conn_zone $proxy_add_x_forwarded_for zone=website_conn:20m;
+limit_conn_status 429;
 
 server {
     server_name example.org www.example.org;
 
     # (...omitted...)
 
-    # Set limit of concurrent connection
-    #limit_conn   website_conn 30;
+    # Recover the real client IP
+    real_ip_header CF-Connecting-IP;
+    set_real_ip_from 127.0.0.1;
+    #real_ip_recursive on;
 
     # Set alternative domains.
     set $primary_proxy_host "example.org";
@@ -112,6 +115,9 @@ server {
         # Overwrite CSP(Content-Security-Policy) to resolve WebSocket and CSP domain mismatch
         #proxy_hide_header Content-Security-Policy;
         #add_header Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://$host https://*.$primary_proxy_host wss://$secondary_proxy_host; img-src 'self' https: data: blob:";
+
+        # Set limit of concurrent connection
+        limit_conn website_conn 255;
 
         # (...omitted...)
     }
