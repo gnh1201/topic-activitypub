@@ -147,6 +147,15 @@ Below is a configuration example using [bunny.net](https://bunny.net):
                 - ALL Condition matches:
                     - ANY Country Code: `KR`
                     - ANY Response Header: `Content-Security-Policy *`
+    - **Regions based 307**
+        - **Actions:**
+            - Set Status Code: `307`
+            - Set Response Header: `Location https://www.example.org{{path}}`
+        - **Conditions:**
+            - **IF:**
+                - ALL Condition matches:
+                    - NONE Country Code: `KR`
+                    - ANY Request Method: `GET`
 - General
     - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
  
