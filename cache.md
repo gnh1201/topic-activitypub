@@ -162,10 +162,10 @@ Below is a configuration example using [bunny.net](https://bunny.net):
     - **[Smart Cache](https://support.bunny.net/hc/en-us/articles/5779976842770-Understanding-Smart-Cache)**: On
  
 #### WebSocket and CSP issues of a static proxy
-Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration. Since this configuration requires careful handling, only apply it if you fully understand it.
+Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
 
 ```
-#sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # (Be careful!) Bypass a WebSocket requests to dynamic proxy service
+sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # (Be careful!) Bypass a WebSocket requests to dynamic proxy service
 ```
 
 ## Filesystem
