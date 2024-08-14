@@ -139,14 +139,6 @@ By combining these two types of services, you can implement what is known as a "
 Below is a configuration example using [bunny.net](https://bunny.net):
 
 - Edge Rules
-    - **Bypass the cache except for specific regions**
-        - **Actions:**
-            - Bypass Perma-Cache
-        - **Conditions:**
-            - **IF:**
-                - ALL Condition matches:
-                    - NONE Country Code: `KR`
-                    - ANY Request Method: `GET`
     - **Downgrade CSP(Content-Security-Policy) for specific regions**
         - **Actions:**
             - Set Response Header: `Content-Security-Policy default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://example.org https://*.example.org wss://www.example.org; img-src 'self' https: data: blob:`
