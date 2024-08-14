@@ -137,7 +137,7 @@ server {
 
 ### Splitted Edge Configuration Using Multiple CDN Services
 
-***NOTE***: For Mastodon, it has been confirmed that applying Splitted Edge causes a conflict between WebSocket and CSP (domain mismatch). I've noted a solution to this issue in the comments, but please test it before using it.
+***NOTE***: For Mastodon, it has been confirmed that applying a static (Non-interactive Reverse Proxy, aka. PushCDN) method proxy causes a conflict between WebSocket and CSP (domain mismatch). I've noted a solution to this issue in the comments, but please test it before using it.
 
 CDN services can be classified into two types: a dynamic method that uses an Interactive [Reverse Proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) and a static (Non-interactive Reverse Proxy, aka. PushCDN) method that does not. Cloudflare is a representative example of a dynamic method, while many other CDN services are likely to use the static method.
 
