@@ -162,6 +162,13 @@ By combining these two types of services, you can implement what is known as a "
                     - ANY Request Method: `GET`
                     - NONE Status Code: `307`
                     - NONE Request URL: `https://example.org/.well-known/*`
+    - **Bypass cache HTML**
+        - **Actions:**
+            - Bypass Perma-Cache
+        - **Conditions:**
+            - **IF:**
+                - ANY Condition matches:
+                    - ANY Response Header: `Content-Type text/html; *`, `Content-Type text/html`
 - General
     - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
  
