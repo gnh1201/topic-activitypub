@@ -104,12 +104,24 @@ server {
     if ($request_method != "GET") {
         set $route_cdn yes;
     }
-    # Allow .well-known
+    # Allow /.well-known
     if ($uri ~* "^/.well-known") {
         set $route_cdn yes;
     }
-    # Allow nodeinfo
+    # Allow /nodeinfo
     if ($uri ~* "^/nodeinfo") {
+        set $route_cdn yes;
+    }
+    # Allow /api/v1/instance
+    if ($uri ~* "^/api/v1/instance") {
+        set $route_cdn yes;
+    }
+    # Allow /api/v1/custom_emojis
+    if ($uri ~* "^/api/v1/custom_emojis") {
+        set $route_cdn yes;
+    }
+    # Allow /actor
+    if ($uri ~* "^/actor") {
         set $route_cdn yes;
     }
     # Redirect if all conditions are satisfied.
@@ -165,8 +177,8 @@ By combining these two types of services, you can implement what is known as a "
                     - NONE Country Code: `KR`
                     - ANY Request Method: `GET`
                     - NONE Status Code: `307`
-                    - NONE Request URL: `https://example.org/.well-known/*`
-                    - NONE Request URL: `https://example.org/nodeinfo/*`
+                    - NONE Request URL: `https://example.org/.well-known/*`, `https://example.org/nodeinfo/*`
+                    - NONE Request URL: `https://example.org/api/v1/instance`, `https://example.org/api/v1/instance/*`, `https://example.org/api/v1/custom_emojis`, `https://example.org/actor`, `https://example.org/actor/*`
     - **Bypass cache HTML**
         - **Actions:**
             - Bypass Perma-Cache
