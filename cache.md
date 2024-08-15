@@ -159,7 +159,7 @@ By combining these two types of services, you can implement what is known as a "
                 - ALL Condition matches:
                     - ANY Country Code: `KR`
                     - ANY Response Header: `Content-Security-Policy *`
-    - **Expand Cache Time /users**
+    - **Cache 15 minutes**
         - **Actions:**
             - Override Cache Time: `900 seconds`
             - Override Browser Cache Time: `900 seconds`
