@@ -166,7 +166,7 @@ By combining these two types of services, you can implement what is known as a "
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
-                    - ANY Request URL: `https://example.org/users/*`
+                    - ANY Request URL: `https://example.org/users/*`, `https://example.org/api/*/instance*`, `https://example.org/nodeinfo/*`
                     - NONE Request URL: `https://example.org/users/*/statuses/*/replies*`
  
 #### NGINX configurations
