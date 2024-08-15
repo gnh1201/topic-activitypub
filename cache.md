@@ -116,6 +116,10 @@ server {
     if ($uri ~* "^/api/v1/instance") {
         set $route_cdn yes;
     }
+    # Allow /api/v2/instance
+    if ($uri ~* "^/api/v2/instance") {
+        set $route_cdn yes;
+    }
     # Allow /api/v1/custom_emojis
     if ($uri ~* "^/api/v1/custom_emojis") {
         set $route_cdn yes;
@@ -177,8 +181,8 @@ By combining these two types of services, you can implement what is known as a "
                     - NONE Country Code: `KR`
                     - ANY Request Method: `GET`
                     - NONE Status Code: `307`
-                    - NONE Request URL: `https://example.org/.well-known/*`, `https://example.org/nodeinfo/*`
-                    - NONE Request URL: `https://example.org/api/v1/instance`, `https://example.org/api/v1/instance/*`, `https://example.org/api/v1/custom_emojis`, `https://example.org/actor`, `https://example.org/actor/*`
+                    - NONE Request URL: `https://example.org/.well-known/*`, `https://example.org/nodeinfo/*`, `https://example.org/api/v1/instance`, `https://example.org/api/v1/instance/*`
+                    - NONE Request URL: `https://example.org/actor`, `https://example.org/actor/*`, `https://example.org/api/v1/custom_emojis`, `https://example.org/api/v2/instance`, `https://example.org/api/v2/instance/*`
     - **Bypass cache HTML**
         - **Actions:**
             - Bypass Perma-Cache
