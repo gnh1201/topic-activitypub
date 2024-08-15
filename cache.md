@@ -162,6 +162,7 @@ By combining these two types of services, you can implement what is known as a "
     - **Expand Cache Time /users**
         - **Actions:**
             - Override Cache Time: `900 seconds`
+            - Override Browser Cache Time: `900 seconds`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
