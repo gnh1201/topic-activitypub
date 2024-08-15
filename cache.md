@@ -104,28 +104,17 @@ server {
     if ($request_method != "GET") {
         set $route_cdn yes;
     }
-    # Allow /.well-known
-    if ($uri ~* "^/.well-known") {
-        set $route_cdn yes;
+    # Allow if it is not a media and not a browser
+    set $is_media 0;
+    if ($uri ~* "\.(jpg|jpeg|gif|png|bmp|webp|svg|mp4)$") {
+        set $is_media 1;
     }
-    # Allow /nodeinfo
-    if ($uri ~* "^/nodeinfo") {
-        set $route_cdn yes;
+    set $is_browser 0;
+    if ($http_user_agent ~* "Mozilla|Chrome|Safari|Opera|Edge|Trident|MSIE") {
+        set $is_browser 1;
     }
-    # Allow /api/v1/instance
-    if ($uri ~* "^/api/v1/instance") {
-        set $route_cdn yes;
-    }
-    # Allow /api/v2/instance
-    if ($uri ~* "^/api/v2/instance") {
-        set $route_cdn yes;
-    }
-    # Allow /api/v1/custom_emojis
-    if ($uri ~* "^/api/v1/custom_emojis") {
-        set $route_cdn yes;
-    }
-    # Allow /actor
-    if ($uri ~* "^/actor") {
+    set $is_media_is_browser "$is_media$is_browser";
+    if ($is_media_is_browser = "00") {
         set $route_cdn yes;
     }
     # Redirect if all conditions are satisfied.
@@ -170,28 +159,14 @@ By combining these two types of services, you can implement what is known as a "
                 - ALL Condition matches:
                     - ANY Country Code: `KR`
                     - ANY Response Header: `Content-Security-Policy *`
-    - **Regions based 307**
+    - **Expand Cache Time /users**
         - **Actions:**
-            - Set Status Code: `307`
-            - Set Response Header: `Location https://www.example.org{{path}}`
-            - Set Response Header: `Content-Length 0`
+            - Override Cache Time: `900 seconds`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
-                    - NONE Country Code: `KR`
-                    - ANY Request Method: `GET`
-                    - NONE Status Code: `307`
-                    - NONE Request URL: `https://example.org/.well-known/*`, `https://example.org/nodeinfo/*`, `https://example.org/api/v1/instance`, `https://example.org/api/v1/instance/*`
-                    - NONE Request URL: `https://example.org/actor`, `https://example.org/actor/*`, `https://example.org/api/v1/custom_emojis`, `https://example.org/api/v2/instance`, `https://example.org/api/v2/instance/*`
-    - **Bypass cache HTML**
-        - **Actions:**
-            - Bypass Perma-Cache
-        - **Conditions:**
-            - **IF:**
-                - ANY Condition matches:
-                    - ANY Response Header: `Content-Type text/html; *`, `Content-Type text/html`
-- General
-    - **[SafeHop](https://bunny.net/cdn/safehop/)**: On
+                    - ANY Request URL: `https://example.org/users/*`
+                    - NONE Request URL: `https://example.org/users/*/statuses/*/replies*`
  
 #### NGINX configurations
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
