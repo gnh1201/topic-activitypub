@@ -108,6 +108,10 @@ server {
     if ($uri ~* "^/.well-known") {
         set $route_cdn yes;
     }
+    # Allow nodeinfo
+    if ($uri ~* "^/nodeinfo") {
+        set $route_cdn yes;
+    }
     # Redirect if all conditions are satisfied.
     if ($route_cdn = no) {
         return 307 https://$secondary_proxy_host$request_uri;
@@ -162,6 +166,7 @@ By combining these two types of services, you can implement what is known as a "
                     - ANY Request Method: `GET`
                     - NONE Status Code: `307`
                     - NONE Request URL: `https://example.org/.well-known/*`
+                    - NONE Request URL: `https://example.org/nodeinfo/*`
     - **Bypass cache HTML**
         - **Actions:**
             - Bypass Perma-Cache
