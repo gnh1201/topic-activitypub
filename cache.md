@@ -104,18 +104,27 @@ server {
     if ($request_method != "GET") {
         set $route_cdn yes;
     }
-    # Allow if it is not a media and not a browser
-    set $is_media 0;
-    if ($uri ~* "\.(jpg|jpeg|gif|png|bmp|webp|svg|mp4)$") {
-        set $is_media 1;
+    # Allow if it is not a image and not a browser
+    set $is_image 0;
+    if ($uri ~* "\.(jpg|jpeg|gif|png|bmp|webp|svg|tiff|tif|heic|avif|raw|psd|ai|eps|pdf)$") {
+        set $is_image 1;
     }
     set $is_browser 0;
     if ($http_user_agent ~* "Mozilla|Chrome|Safari|Opera|Edge|Trident|MSIE") {
         set $is_browser 1;
     }
-    set $is_media_is_browser "$is_media$is_browser";
-    if ($is_media_is_browser = "00") {
+    set $is_image_is_browser "$is_image$is_browser";
+    if ($is_image_is_browser = "00") {
         set $route_cdn yes;
+    }
+    # Not allow if it is an audio or a video
+    set $is_video 0;
+    if ($uri ~* "\.(mp4|mkv|avi|mov|wmv|flv|webm|mpeg|m4v|3gp|ogg|mp3|wav|flac|aac|m4a|wma|alac|aiff|opus)$") {
+        set $is_video 1;
+    }
+    set $is_video_host "$is_video$host";
+    if ($is_video_host = "1$primary_proxy_host") {
+        set $route_cdn no;
     }
     # Redirect if all conditions are satisfied.
     if ($route_cdn = no) {
