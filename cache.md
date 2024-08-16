@@ -168,16 +168,7 @@ By combining these two types of services, you can implement what is known as a "
                 - ALL Condition matches:
                     - ANY Country Code: `KR`
                     - ANY Response Header: `Content-Security-Policy *`
-    - **Cache 15 minutes**
-        - **Actions:**
-            - Override Cache Time: `900 seconds`
-            - Override Browser Cache Time: `900 seconds`
-        - **Conditions:**
-            - **IF:**
-                - ALL Condition matches:
-                    - ANY Request URL: `https://example.org/users/*`, `https://example.org/api/*/instance*`, `https://example.org/nodeinfo/*`
-                    - NONE Request URL: `https://example.org/users/*/statuses/*/replies*`
-    - **Bypass Cache when Authentication**
+    - **Bypass Cache if use Cookie**
         - **Actions:**
             - Bypass Perma-Cache
         - **Conditions:**
@@ -185,6 +176,15 @@ By combining these two types of services, you can implement what is known as a "
                 - ANY Condition matches:
                     - ANY Request Header: `Cookie *`
                     - ANY Request URL: `https://example.org/auth/*`
+    - **Regions based 301**
+        - **Actions:**
+            - Redirect `https://example.org/`
+        - **Conditions:**
+            - **IF:**
+                - ALL Condition matches:
+                    - ANY Request URL: `https://example.org/`, `https://example.org`
+                    - NONE Country State Code: `KR`
+                    - ANY Request Method: `GET`
 
 #### NGINX configurations
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
