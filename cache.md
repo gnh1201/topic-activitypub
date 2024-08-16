@@ -177,7 +177,15 @@ By combining these two types of services, you can implement what is known as a "
                 - ALL Condition matches:
                     - ANY Request URL: `https://example.org/users/*`, `https://example.org/api/*/instance*`, `https://example.org/nodeinfo/*`
                     - NONE Request URL: `https://example.org/users/*/statuses/*/replies*`
- 
+    - **Bypass Cache when Authentication**
+        - **Actions:**
+            - Bypass Perma-Cache
+        - **Conditions:**
+            - **IF:**
+                - ANY Condition matches:
+                    - ANY Request Header: `Cookie *`
+                    - ANY Request URL: `https://example.org/auth/*`
+
 #### NGINX configurations
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
 
