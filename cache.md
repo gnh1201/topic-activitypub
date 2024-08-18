@@ -27,7 +27,7 @@ Cloudflare supports caching sizes of up to 100MB per file (on the free plan), so
 
 ### Cloudflare WARP with Squid Cache (Outbound)
 
-You can accelerate your network by enabling [Cloudflare WARP](https://one.one.one.one/) and integrating it with [Squid Cache](https://www.squid-cache.org/). It supports a proxy mode that uses a specific port (default: 40000/TCP) and a WARP mode that functions like a VPN. Since the proxy mode is less efficient, it is recommended to use the WARP mode.
+You can accelerate your network by enabling [Cloudflare WARP](https://one.one.one.one/) ( and integrating it with [Squid Cache](https://www.squid-cache.org/). It supports a proxy mode that uses a specific port (default: 40000/TCP) and a WARP mode that functions like a VPN. Since the proxy mode is less efficient, it is recommended to use the WARP mode.
 
 Outbound network traffic occurs when communicating with ActivityPub relays, performing message validation, etc. An example of a suitable `squid.conf` configuration is as follows:
 
@@ -41,7 +41,7 @@ prefer_direct on
 http_access allow localnet
 ```
 
-#### In the proxy server (with Cloudflare WARP)
+#### In the proxy server (If Cloudflare WARP installed)
 
 ```
 http_access allow localnet
