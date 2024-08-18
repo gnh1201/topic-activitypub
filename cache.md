@@ -175,7 +175,7 @@ By combining these two types of services, you can implement what is known as a "
             - **IF:**
                 - ANY Condition matches:
                     - ANY Request Header: `Cookie *`
-                    - ANY Request URL: `https://example.org/auth/*`
+                    - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`
     - **Regions based 301**
         - **Actions:**
             - Redirect `https://example.org/`
@@ -185,6 +185,14 @@ By combining these two types of services, you can implement what is known as a "
                     - ANY Request URL: `https://example.org/`, `https://example.org`
                     - NONE Country State Code: `KR`
                     - ANY Request Method: `GET`
+    - **Cache rule for user data**
+        - **Actions:**
+            - Override Cache Time: `240 seconds`
+        - **Conditions:**
+            - **IF:**
+                - ALL Condition matches:
+                    - ANY Request URL: `https://catswords.social/users/*`
+                    - NONE Request URL: `https://catswords.social/users/*/statuses/*/replies*`
 
 #### NGINX configurations
 Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
