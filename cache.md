@@ -159,6 +159,10 @@ CDN services can be classified into two types: a dynamic method that uses an Int
 By combining these two types of services, you can implement what is known as a "splitted edge." This involves first resolving the user's region (determining which country the user belongs to) using the static method and then serving content using the dynamic method.
 
 #### Bunny CDN ([bunny.net](https://bunny.net)) configurations
+- Caching/General
+    - Vary Cache (If not enabled, a response could be compromised.)
+        - Checked `URL Query String`
+        - Checked `Cookie Value`
 - Edge Rules
     - **Downgrade CSP(Content-Security-Policy) for specific regions**
         - **Actions:**
