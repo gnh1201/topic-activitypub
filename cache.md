@@ -26,18 +26,28 @@ This example can be utilized in devising network acceleration strategies.
 Cloudflare supports caching sizes of up to 100MB per file (on the free plan), so integrating it with existing cloud infrastructure can result in significant network acceleration. Additionally, using [cloudflared (aka. Zero Trust Access, Argo Tunnel)](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) helps resolve some undocumented limitations, such as issues with routing priority varying by region.
 
 ### Cloudflare WARP with Squid Cache (Outbound)
-You can accelerate your network by enabling the proxy mode of [Cloudflare WARP](https://one.one.one.one/) (please refer to the official documentation on how to enable it) and integrating it with [Squid Cache](https://www.squid-cache.org/). Outbound network traffic occurs when communicating with ActivityPub relays, performing message validation, etc. An example of a suitable `squid.conf` configuration is as follows:
+
+You can accelerate your network by enabling [Cloudflare WARP](https://one.one.one.one/) and integrating it with [Squid Cache](https://www.squid-cache.org/). It supports a proxy mode that uses a specific port (default: 40000/TCP) and a WARP mode that functions like a VPN. Since the proxy mode is less efficient, it is recommended to use the WARP mode.
+
+Outbound network traffic occurs when communicating with ActivityPub relays, performing message validation, etc. An example of a suitable `squid.conf` configuration is as follows:
+
+#### In the operational server
 
 ```
-cache_peer 127.0.0.1 parent 40000 0 no-query default
-cache_peer_access 127.0.0.1 allow !localnet
-never_direct deny localnet
+cache_peer [x.x.x.x] parent 3128 0 no-query default
+cache_peer_access [x.x.x.x] allow all
 never_direct allow all
 prefer_direct on
 http_access allow localnet
 ```
 
-I observed that as outbound requests become more frequent, the resource demands of Cloudflare WARP's process, `warp-svc`, increase significantly. If performance improvement is necessary, you can use Squid Cache to offload proxy operations to a different machine.
+#### In the proxy server (with Cloudflare WARP)
+
+```
+http_access allow localnet
+```
+
+I recommend separating the operational server from the proxy server. You can install Squid on each server to relay proxy requests.
 
 ### Splitted edge
 [Regions with peering conflicts with CDN providers offering free plans](https://www.gameple.co.kr/news/articleView.html?idxno=208925) may require a splitted edge. This approach requires setting up DNS subdomains and installing and configuring [geoipupdate (MaxMind)](https://github.com/maxmind/geoipupdate) along with the [ngx_http_geoip2_module (an nginx extension module)](https://github.com/leev/ngx_http_geoip2_module).
