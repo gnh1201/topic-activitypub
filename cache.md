@@ -47,7 +47,7 @@ http_access allow localnet
 http_access allow localnet
 ```
 
-I recommend separating the operational server from the proxy server. You can install Squid on each server to relay proxy requests.
+I recommend separating the operation server and the proxy server. You can install Squid on each server to relay proxy requests, and set up redundancy so that the local connection is used automatically when Cloudflare WARP is unavailable.
 
 ### Splitted edge
 [Regions with peering conflicts with CDN providers offering free plans](https://www.gameple.co.kr/news/articleView.html?idxno=208925) may require a splitted edge. This approach requires setting up DNS subdomains and installing and configuring [geoipupdate (MaxMind)](https://github.com/maxmind/geoipupdate) along with the [ngx_http_geoip2_module (an nginx extension module)](https://github.com/leev/ngx_http_geoip2_module).
