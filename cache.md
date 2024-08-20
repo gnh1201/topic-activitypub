@@ -192,11 +192,11 @@ By combining these two types of services, you can implement what is known as a "
                     - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`
     - **Regions based 301**
         - **Actions:**
-            - Redirect `https://example.org/`
+            - Redirect `https://example.org{{path}}`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
-                    - ANY Request URL: `https://example.org/`, `https://example.org`
+                    - ANY Request URL: `https://example.org/`, `https://example.org`, `https://example.org/@*`
                     - NONE Country State Code: `KR`
                     - ANY Request Method: `GET`
 
