@@ -153,7 +153,7 @@ server {
     set $cache_bypass 0;
 
     # Check if request path or referer matches certain patterns
-    if ($request_uri ~* "^(/auth/|/oauth/|/explore|/getting-started)") {
+    if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$)") {
         set $cache_bypass 1;
     }
     if ($http_referer ~* "^(/auth/|/oauth/)") {
