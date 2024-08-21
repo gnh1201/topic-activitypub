@@ -136,6 +136,14 @@ server {
     if ($is_video_host = "1$primary_proxy_host") {
         set $route_cdn no;
     }
+    # Allow robots.txt (Robots Exclusion Standard)
+    if ($request_uri ~* "/robots\.txt$") {
+        set $route_cdn yes;
+    }
+    # Allow RSS (Really Simple Syndication)
+    if ($request_uri ~* "\.(rss)$") {
+        set $route_cdn yes;
+    }
     # Redirect if all conditions are satisfied.
     if ($route_cdn = no) {
         return 307 https://$secondary_proxy_host$request_uri;
