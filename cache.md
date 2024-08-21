@@ -159,6 +159,9 @@ server {
     if ($http_referer ~* "^(/auth/|/oauth/)") {
         set $cache_bypass 1;
     }
+    if ($http_user_agent ~* "PingdomPageSpeed|DareBoost|Google|PTST|Chrome-Lighthouse|WP Rocket") {
+        set $cache_bypass 0;
+    }
 
     location / {
         proxy_pass             https://your-own-server;
