@@ -190,21 +190,21 @@ By combining these two types of services, you can implement what is known as a "
                 - ALL Condition matches:
                     - ANY Country Code: `KR`
                     - ANY Response Header: `Content-Security-Policy *`
-    - **Bypass Cache if use Cookie**
+    - **Bypass Cache if use Authentication**
         - **Actions:**
             - Bypass Perma-Cache
         - **Conditions:**
             - **IF:**
                 - ANY Condition matches:
-                    - ANY Request Header: `Cookie *`
                     - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`
+                    - ANY Request Header: `Referer https://example.org/auth/*`, `Referer https://example.org/oauth/*`
     - **Regions based 301**
         - **Actions:**
             - Redirect `https://example.org{{path}}`
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
-                    - ANY Request URL: `https://example.org/@*`, `https://example.org/system/*`
+                    - ANY Request URL: `https://example.org/system/*`, `https://example.org/*`, `https://example.org*`
                     - NONE Country State Code: `KR`
                     - ANY Request Method: `GET`
 
