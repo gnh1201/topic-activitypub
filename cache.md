@@ -196,7 +196,7 @@ By combining these two types of services, you can implement what is known as a "
         - **Conditions:**
             - **IF:**
                 - ALL Condition matches:
-                    - ANY Request URL: `https://example.org/`, `https://example.org`, `https://example.org/@*`
+                    - ANY Request URL: `https://example.org/`, `https://example.org`, `https://example.org/@*`, `https://example.org/system/*`
                     - NONE Country State Code: `KR`
                     - ANY Request Method: `GET`
 
