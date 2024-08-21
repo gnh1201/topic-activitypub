@@ -196,7 +196,7 @@ By combining these two types of services, you can implement what is known as a "
         - **Conditions:**
             - **IF:**
                 - ANY Condition matches:
-                    - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`
+                    - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`, `https://example.org/`, `https://example.org/explore`, `https://example.org/getting-started`
                     - ANY Request Header: `Referer https://example.org/auth/*`, `Referer https://example.org/oauth/*`
 
 #### NGINX configurations
