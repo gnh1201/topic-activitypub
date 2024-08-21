@@ -194,6 +194,8 @@ server {
         limit_conn website_limit 30;
     }
 
+    # (omitted: Cache rules for STATIC files)
+
     # when use an alternative domains
     # Do not apply 'application/activity+json' or 'application/ld+json'. There have been reports that corrupted Activities cause issues with the moderation features of the Misskey application.
     sub_filter_types text/plain text/css text/xml application/xml application/xml+html;
@@ -201,7 +203,7 @@ server {
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
-    # (...omitted...)
+    # (omitted)
 }
 ```
 
