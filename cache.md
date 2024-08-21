@@ -161,15 +161,38 @@ server {
     }
 
     location / {
-        # (...omitted...)
+        proxy_pass             https://your-own-server;
+        proxy_set_header       Host $host;
+        proxy_set_header       X-Real-IP $remote_addr;
+        proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header       X-Forwarded-Host $host;
+        proxy_set_header       X-Forwarded-Proto $scheme;
+        proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
+        proxy_buffering        on;
+        proxy_cache            STATIC;
+        proxy_cache_valid      200 15m;
+        proxy_cache_use_stale  error timeout invalid_header updating
+                               http_500 http_502 http_503 http_504;
+        if ($cache_bypass = 1) {
+            add_header             X-Proxy-Cache $upstream_cache_status;
+            add_header             Cache-Control "public, max-age=900, s-maxage=900";
+        }
+        if ($cache_bypass = 0) {
+            add_header             Cache-Control "no-cache, no-store, must-revalidate";
+        }
+        proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
+
+        # Prevent data exposure
+        proxy_cache_key        "$http_cookie$http_x_auth_token$scheme$primary_proxy_host$request_uri";
+        proxy_no_cache         $cache_bypass;
+        proxy_cache_bypass     $cache_bypass;
+
+        # Enable the file upload buffering (Default: on)
+        #proxy_request_buffering on;
 
         # Set limit of concurrent connection
-        limit_conn website_conn 30;
-
-        # (...omitted...)
+        limit_conn mastodon_limit 30;
     }
-
-    # (...omitted...)
 
     # when use an alternative domains
     # Do not apply 'application/activity+json' or 'application/ld+json'. There have been reports that corrupted Activities cause issues with the moderation features of the Misskey application.
