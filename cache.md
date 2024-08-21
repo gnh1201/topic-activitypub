@@ -83,8 +83,8 @@ map $geoip2_data_country_code $allowed_country {
 * [YOUR_WEBSITE].conf
 
 ```
-limit_conn_zone $binary_remote_addr zone=website_conn:20m;
-#limit_conn_zone $proxy_add_x_forwarded_for zone=website_conn:20m;
+limit_conn_zone $binary_remote_addr zone=website_limit:20m;
+#limit_conn_zone $proxy_add_x_forwarded_for zone=website_limit:20m;
 limit_conn_status 429;
 
 server {
@@ -191,7 +191,7 @@ server {
         #proxy_request_buffering on;
 
         # Set limit of concurrent connection
-        limit_conn mastodon_limit 30;
+        limit_conn website_limit 30;
     }
 
     # when use an alternative domains
