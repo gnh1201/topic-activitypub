@@ -149,6 +149,17 @@ server {
         return 307 https://$secondary_proxy_host$request_uri;
     }
 
+    # Define a variable to control caching
+    set $cache_bypass 0;
+
+    # Check if request path or referer matches certain patterns
+    if ($request_uri ~* "^(/auth/|/oauth/|/explore|/getting-started)") {
+        set $cache_bypass 1;
+    }
+    if ($http_referer ~* "^(/auth/|/oauth/)") {
+        set $cache_bypass 1;
+    }
+
     location / {
         # (...omitted...)
 
