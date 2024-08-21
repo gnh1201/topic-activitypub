@@ -173,12 +173,12 @@ server {
         proxy_cache_valid      200 4s;
         proxy_cache_use_stale  error timeout invalid_header updating
                                http_500 http_502 http_503 http_504;
-        if ($cache_bypass = 1) {
-            add_header             X-Proxy-Cache $upstream_cache_status;
-            add_header             Cache-Control "public, max-age=4, s-maxage=4";
-        }
         if ($cache_bypass = 0) {
-            add_header             Cache-Control "no-cache, no-store, must-revalidate";
+            add_header             X-Proxy-Cache $upstream_cache_status;
+            add_header             Cache-Control "public, max-age=900, s-maxage=900";
+        }
+        if ($cache_bypass = 1) {
+            add_header             Cache-Control "private, no-cache, no-store, must-revalidate";
         }
         proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
 
