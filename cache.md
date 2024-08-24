@@ -156,6 +156,9 @@ server {
     if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$)") {
         set $cache_bypass 1;
     }
+    if ($request_uri ~* ^/users/.*/statuses/.*/replies(?:\?.*)?$) {
+        set $cache_bypass 1;
+    }
     if ($http_referer ~* "^(/auth/|/oauth/)") {
         set $cache_bypass 1;
     }
