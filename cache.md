@@ -176,7 +176,7 @@ server {
         proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
         proxy_buffering        on;
         proxy_cache            STATIC;
-        proxy_cache_valid      200 4s;
+        proxy_cache_valid      200 15m;
         proxy_cache_use_stale  error timeout invalid_header updating
                                http_500 http_502 http_503 http_504;
         if ($cache_bypass = 0) {
