@@ -153,7 +153,10 @@ server {
     set $cache_bypass 0;
 
     # Check if request path or referer matches certain patterns
-    if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$|/api/v1/markers$)") {
+    if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$)") {
+        set $cache_bypass 1;
+    }
+    if ($request_uri ~* ^/api/v1/(markers|timelines|notifications)) {
         set $cache_bypass 1;
     }
     if ($request_uri ~* ^/users/.*/statuses/.*/(replies(?:\?.*)?|reblogged_by|favourited_by)$) {
