@@ -153,10 +153,10 @@ server {
     set $cache_bypass 0;
 
     # Check if request path or referer matches certain patterns
-    if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$)") {
+    if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$|/api/v1/markers$)") {
         set $cache_bypass 1;
     }
-    if ($request_uri ~* ^/users/.*/statuses/.*/replies(?:\?.*)?$) {
+    if ($request_uri ~* ^/users/.*/statuses/.*/(replies(?:\?.*)?|reblogged_by|favourited_by)$) {
         set $cache_bypass 1;
     }
     if ($http_referer ~* "^(/auth/|/oauth/)") {
@@ -184,12 +184,13 @@ server {
             add_header             Cache-Control "public, max-age=900, s-maxage=900";
         }
         if ($cache_bypass = 1) {
-            add_header             Cache-Control "private, no-cache, no-store, must-revalidate";
+            add_header             Cache-Control "public, max-age=6, s-maxage=6";   # for realtime updates
+            #add_header             Cache-Control "private, no-cache, no-store, must-revalidate";
         }
         proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
 
         # Prevent data exposure
-        proxy_cache_key        "$http_cookie$http_x_auth_token$scheme$primary_proxy_host$request_uri";
+        proxy_cache_key        "$http_referer$http_cookie$http_x_auth_token$scheme$primary_proxy_host$request_uri";
         proxy_no_cache         $cache_bypass;
         proxy_cache_bypass     $cache_bypass;
 
