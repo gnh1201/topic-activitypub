@@ -187,7 +187,7 @@ server {
             add_header             Cache-Control "public, max-age=900, s-maxage=900";
         }
         if ($cache_bypass = 1) {
-            add_header             Cache-Control "public, max-age=20, s-maxage=20";   # for realtime updates
+            add_header             Cache-Control "public, max-age=4, s-maxage=4";   # for realtime updates
             #add_header             Cache-Control "private, no-cache, no-store, must-revalidate";
         }
         proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
@@ -213,12 +213,12 @@ server {
         proxy_set_header       X-Forwarded-Proto $scheme;
         proxy_buffering        on;
         proxy_cache            STATIC;
-        proxy_cache_valid      200 20s;   # 20 seconds
+        proxy_cache_valid      200 4s;   # 4 seconds
         proxy_cache_use_stale  error timeout invalid_header updating
                                http_500 http_502 http_503 http_504;
         add_header             X-Proxy-Cache $upstream_cache_status;
         #proxy_hide_header      Cache-Control;
-        add_header             Cache-Control "public, max-age=20, s-maxage=20";
+        add_header             Cache-Control "public, max-age=4, s-maxage=4";
         proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
 
         # Prevent data exposure
