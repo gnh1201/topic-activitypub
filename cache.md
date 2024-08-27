@@ -187,8 +187,8 @@ server {
             add_header             Cache-Control "public, max-age=900, s-maxage=900";
         }
         if ($cache_bypass = 1) {
-            #add_header             Cache-Control "public, max-age=4, s-maxage=4";
-            add_header             Cache-Control "private, no-cache, no-store, must-revalidate";
+            add_header             Cache-Control "public, max-age=10, s-maxage=10";
+            #add_header             Cache-Control "private, no-cache, no-store, must-revalidate";
         }
         proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
 
