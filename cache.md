@@ -156,12 +156,12 @@ server {
     if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$)") {
         set $cache_bypass 1;
     }
-    if ($request_uri ~* ^/api/v1/(markers|timelines|notifications)) {
-        set $cache_bypass 1;
-    }
-    if ($request_uri ~* ^/users/.*/statuses/.*/(replies(?:\?.*)?|reblogged_by|favourited_by)$) {
-        set $cache_bypass 1;
-    }
+    #if ($request_uri ~* ^/api/v1/(markers|timelines|notifications)) {
+    #    set $cache_bypass 1;
+    #}
+    #if ($request_uri ~* ^/users/.*/statuses/.*/(replies(?:\?.*)?|reblogged_by|favourited_by)$) {
+    #    set $cache_bypass 1;
+    #}
     if ($http_referer ~* "^(/auth/|/oauth/)") {
         set $cache_bypass 1;
     }
@@ -202,6 +202,30 @@ server {
 
         # Set limit of concurrent connection
         limit_conn website_limit 30;
+    }
+
+    location ~* ^(/api/v1/(markers|timelines|notifications)|/users/.*/statuses/.*/(replies(?:\?.*)?|reblogged_by|favourited_by))$ {
+        proxy_pass             https://your-own-server;
+        proxy_set_header       Host $host;
+        proxy_set_header       X-Real-IP $remote_addr;
+        proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header       X-Forwarded-Host $host;
+        proxy_set_header       X-Forwarded-Proto $scheme;
+        proxy_buffering        on;
+        proxy_cache            STATIC;
+        proxy_cache_valid      200 20s;   # 20 seconds
+        proxy_cache_use_stale  error timeout invalid_header updating
+                               http_500 http_502 http_503 http_504;
+        add_header             X-Proxy-Cache $upstream_cache_status;
+        #proxy_hide_header      Cache-Control;
+        add_header             Cache-Control "public, max-age=20, s-maxage=20";
+        proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
+
+        # Prevent data exposure
+        proxy_cache_key        "$http_referer$http_cookie$http_x_auth_token$scheme$primary_proxy_host$request_uri";
+
+        # Set limit of concurrent connection
+        limit_conn mastodon_limit 30;
     }
 
     # (omitted: Cache rules for STATIC (e.g., png, jpg, mp4) files)
