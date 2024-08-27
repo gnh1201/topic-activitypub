@@ -207,8 +207,9 @@ server {
     # (omitted: Cache rules for STATIC (e.g., png, jpg, mp4) files)
 
     # when use an alternative domains
-    # Do not apply 'application/activity+json' or 'application/ld+json'. There have been reports that corrupted Activities cause issues with the moderation features of the Misskey application.
-    sub_filter_types text/plain text/css text/xml application/xml application/xml+html;
+    # Do not apply 'application/activity+json', or 'application/ld+json', or `application/jrd+json`.
+    # There have been reports that corrupted Activities cause issues with the moderation features of an ActivityPub applications.
+    sub_filter_types text/plain text/css text/xml application/xml application/xml+html application/json;
     sub_filter_once off;
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
