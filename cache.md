@@ -100,11 +100,13 @@ server {
     # Set alternative domains.
     set $primary_proxy_host "example.org";
     set $secondary_proxy_host "www.example.org";
+    #set $websocket_proxy_host $host;
 
     # Check is it connect from an outside country.
     set $route_cdn yes;
     if ($host = $primary_proxy_host) {
         set $route_cdn $allowed_country;
+        #set $websocket_proxy_host $secondary_proxy_host;
     }
     # Websocket does not allow redirect requests, so it is directly linked.
     if ($http_upgrade = "websocket") {
@@ -211,6 +213,7 @@ server {
     # There have been reports that corrupted Activities cause issues with the moderation features of an ActivityPub applications.
     sub_filter_types text/plain text/css text/xml application/xml application/xml+html application/json;
     sub_filter_once off;
+    #sub_filter 'wss://$primary_proxy_host' 'wss://$websocket_proxy_host';
     sub_filter '/$primary_proxy_host' '/$host';
     sub_filter '\\/$primary_proxy_host' '\\/$host';
 
