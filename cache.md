@@ -97,7 +97,7 @@ server {
 
     # Recover the real client IP
     real_ip_header X-Forwarded-For;
-    set_real_ip_from 127.0.0.1;
+    set_real_ip_from 0.0.0.0/0;
     #real_ip_recursive on;
 
     # Set alternative domains.
