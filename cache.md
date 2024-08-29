@@ -83,9 +83,12 @@ map $geoip2_data_country_code $allowed_country {
 * [YOUR_WEBSITE].conf
 
 ```
-limit_conn_zone $binary_remote_addr zone=website_limit:20m;
-#limit_conn_zone $proxy_add_x_forwarded_for zone=website_limit:20m;
-limit_conn_status 429;
+# If you apply CDN, you may not need to limit the number of GET requests.
+#limit_conn_zone $binary_remote_addr zone=website_limit:20m;
+#limit_conn_status 429;
+
+limit_req_zone $binary_remote_addr zone=website_inbox_limit:20m rate=5r/s;
+#limit_req_status 429;
 
 server {
     server_name example.org www.example.org;
@@ -203,7 +206,29 @@ server {
         #proxy_request_buffering on;
 
         # Set limit of concurrent connection
-        limit_conn website_limit 30;
+        #limit_conn website_limit 30;
+    }
+
+    location /inbox {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        #proxy_set_header Proxy "";
+
+        proxy_pass https://mastodon;
+        proxy_buffering off;
+        proxy_request_buffering off;
+        proxy_redirect off;
+        proxy_http_version 1.1;
+
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+
+        # Set delay when too many requests
+        limit_req zone=website_inbox_limit burst=10 nodelay;
     }
 
     # (omitted: Cache rules for STATIC (e.g., png, jpg, mp4) files)
