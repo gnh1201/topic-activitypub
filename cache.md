@@ -87,7 +87,7 @@ map $geoip2_data_country_code $allowed_country {
 #limit_conn_zone $binary_remote_addr zone=website_limit:20m;
 #limit_conn_status 429;
 
-limit_req_zone $binary_remote_addr zone=website_inbox_limit:20m rate=5r/s;
+limit_req_zone $server_name zone=website_inbox_limit:20m rate=5r/s;
 #limit_req_status 429;
 
 server {
@@ -223,12 +223,12 @@ server {
         proxy_redirect off;
         proxy_http_version 1.1;
 
-        sendfile on;
-        tcp_nopush on;
-        tcp_nodelay on;
+        #sendfile on;
+        #tcp_nopush on;
+        #tcp_nodelay on;
 
         # Set delay when too many requests
-        limit_req zone=website_inbox_limit burst=10 nodelay;
+        limit_req zone=website_inbox_limit burst=100;
     }
 
     # (omitted: Cache rules for STATIC (e.g., png, jpg, mp4) files)
