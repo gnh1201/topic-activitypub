@@ -158,7 +158,7 @@ server {
     set $cache_bypass 0;
 
     # Check if request path or referer matches certain patterns
-    if ($request_uri ~* "^$|^/$|^(/auth/|/oauth/|/explore$|/getting-started$)") {
+    if ($request_uri ~* "^(/auth/|/oauth/|/explore$|/getting-started$)") {
         set $cache_bypass 1;
     }
     if ($request_uri ~* ^/api/v1/(markers|timelines|notifications)) {
@@ -267,19 +267,13 @@ By combining these two types of services, you can implement what is known as a "
                     - ANY Response Header: `Content-Security-Policy *`
     - **Bypass Cache if use Authentication**
         - **Actions:**
-            - Bypass Perma-Cache
+            - Override Cache Time: `0 seconds`
+            - Set Response Header: `Cache-Control private, no-cache, no-store, must-revalidate`
         - **Conditions:**
             - **IF:**
                 - ANY Condition matches:
                     - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`, `https://example.org/`, `https://example.org/explore`, `https://example.org/getting-started`
                     - ANY Request Header: `Referer https://example.org/auth/*`, `Referer https://example.org/oauth/*`
-
-#### NGINX configurations
-Static proxies do not support WebSocket. Therefore, you may need to apply the following configuration.
-
-```
-sub_filter 'wss://$primary_proxy_host' 'wss://$secondary_proxy_host';    # (Be careful!) Bypass a WebSocket requests to dynamic proxy service
-```
 
 ## Filesystem
 
