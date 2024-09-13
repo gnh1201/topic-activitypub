@@ -49,8 +49,8 @@ http_access allow localnet
 
 I recommend separating the operation server and the proxy server. You can install Squid on each server to relay proxy requests, and set up redundancy so that the local connection is used automatically when Cloudflare WARP is unavailable.
 
-### Splitted edge
-[Regions with peering conflicts with CDN providers offering free plans](https://www.gameple.co.kr/news/articleView.html?idxno=208925) may require a splitted edge. This approach requires setting up DNS subdomains and installing and configuring [geoipupdate (MaxMind)](https://github.com/maxmind/geoipupdate) along with the [ngx_http_geoip2_module (an nginx extension module)](https://github.com/leev/ngx_http_geoip2_module).
+### Split edge
+[Regions with peering conflicts with CDN providers offering free plans](https://www.gameple.co.kr/news/articleView.html?idxno=208925) may require a split edge. This approach requires setting up DNS subdomains and installing and configuring [geoipupdate (MaxMind)](https://github.com/maxmind/geoipupdate) along with the [ngx_http_geoip2_module (an nginx extension module)](https://github.com/leev/ngx_http_geoip2_module).
 
 Below is an example of an nginx configuration that can be applied in such situations. This example assumes that paths using the CDN have the "www" subdomain (e.g., www.example.org), while paths not using the CDN use the default domain (e.g., example.org).
 
@@ -246,34 +246,8 @@ server {
 }
 ```
 
-### Splitted Edge Configuration Using Multiple CDN Services
-CDN services can be classified into two types: a dynamic method that uses an Interactive [Reverse Proxy](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/) and a static (Non-interactive Reverse Proxy, aka. PushCDN) method that does not. Cloudflare is a representative example of a dynamic method, while many other CDN services are likely to use the static method.
-
-By combining these two types of services, you can implement what is known as a "splitted edge." This involves first resolving the user's region (determining which country the user belongs to) using the static method and then serving content using the dynamic method.
-
-#### Bunny CDN ([bunny.net](https://bunny.net)) configurations
-- Caching/General
-    - Vary Cache (If not enabled, a response could be compromised.)
-        - Checked `URL Query String`
-        - Checked `Cookie Value`
-- Edge Rules
-    - **Downgrade CSP(Content-Security-Policy) for specific regions**
-        - **Actions:**
-            - Set Response Header: `Content-Security-Policy base-uri 'none'; default-src 'none'; frame-ancestors 'none'; font-src 'self' https://example.org https://*.example.org; img-src 'self' https: data: blob: https://example.org https://*.example.org; style-src 'self' https://example.org https://*.example.org 'unsafe-inline'; media-src 'self' https: data: https://example.org https://*.example.org; frame-src 'self' https: https://example.org https://*.example.org; manifest-src 'self' https://example.org https://*.example.org; form-action 'self' https://example.org https://*.example.org; child-src 'self' blob: https://example.org https://*.example.org; worker-src 'self' blob: https://example.org https://*.example.org; connect-src 'self' data: blob: https://example.org https://*.example.org wss://www.example.org; script-src 'self' https://example.org https://*.example.org 'wasm-unsafe-eval' 'unsafe-inline' 'unsafe-eval'`
-        - **Conditions:**
-            - **IF:**
-                - ALL Condition matches:
-                    - ANY Country Code: `KR`
-                    - ANY Response Header: `Content-Security-Policy *`
-    - **Bypass Cache if use Authentication**
-        - **Actions:**
-            - Override Cache Time: `0 seconds`
-            - Set Response Header: `Cache-Control private, no-cache, no-store, must-revalidate`
-        - **Conditions:**
-            - **IF:**
-                - ANY Condition matches:
-                    - ANY Request URL: `https://example.org/auth/*`, `https://example.org/oauth/*`, `https://example.org/`, `https://example.org/explore`, `https://example.org/getting-started`
-                    - ANY Request Header: `Referer https://example.org/auth/*`, `Referer https://example.org/oauth/*`
+#### Multiple CDN based split edge
+You can improve resolution speed by using multiple CDNs with a split edge setup. However, it has recently been discovered that using multiple CDNs can potentially lead to a security issue known as WebFinger spoofing. When applying a split edge setup, please ensure that you only use CDN services that have been verified as safe for use with the ActivityPub protocol.
 
 ## Filesystem
 
