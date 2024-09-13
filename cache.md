@@ -247,7 +247,7 @@ server {
 ```
 
 #### Multiple CDN based split edge
-You can improve resolution speed by using multiple CDNs with a split edge setup. However, it has recently been discovered that using multiple CDNs can potentially lead to a security issue known as WebFinger spoofing. When applying a split edge setup, please ensure that you only use CDN services that have been verified as safe for use with the ActivityPub protocol.
+You can improve the speed of resolving a location by utilizing multiple CDNs on a split edge. However, it was recently discovered that using multiple CDNs may lead to a security issue known as WebFinger spoofing. When applying a split edge, ensure you only use CDN services that have been verified to be safe for use with the ActivityPub protocol.
 
 ## Filesystem
 
